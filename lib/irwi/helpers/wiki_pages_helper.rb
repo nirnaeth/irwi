@@ -4,8 +4,8 @@ module Irwi::Helpers::WikiPagesHelper
   include Irwi::Helpers::WikiPageAttachmentsHelper
 
   # Edit form for wiki page model
-  def wiki_page_form( config = {}, &block )
-    form_for( @page, { :as => :page, :url => url_for( :action => :update ), :html=> { :class => 'wiki_form', :method => :post } }.merge!( config ), &block )
+  def wiki_page_form(action = :new, config = {}, &block)
+    form_for(@page, { as: :page, url: url_for(action: action), html: { class: 'wiki_form', method: :post } }.merge!(config), &block)
   end
 
   def wiki_page_new_path
